@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd                   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+	default-lazy-init="true">	<!-- THIS BEAN MUST BE DEFINED IN ORDER TO REDIRECT PERFORMANCE MONITOR RECORDS -->
+	
+	<bean id="father" class="com.lin.luo.tian.Father" init-method="start"></bean>
+	<bean id="son" class="com.lin.luo.tian.Son" scope="singleton">
+		<property name="tool" ref="tool"></property>
+	</bean>
+	<bean id ="tool" class="com.lin.luo.tian.Tool" scope="prototype"></bean>
+
+</beans>
